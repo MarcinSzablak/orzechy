@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "65e312fc3acc64db24b2ec74"
+  },
+  "id": 1,
+  "name": "kak",
+  "latina": "bk",
+  "origin_location": "sdfkgh",
+  "delete_password": "sdfhjk"
+},
+{
+  "_id": {
+    "$oid": "65e312fc3acc64db24b2ec75"
+  },
+  "id": 2,
+  "name": "laskowiec",
+  "latina": "Corylus avellana",
+  "origin_location": "Europa",
+  "delete_password": "nut"
+},
+{
+  "_id": {
+    "$oid": "65e312fc3acc64db24b2ec76"
+  },
+  "id": 3,
+  "name": "Orzech włoski",
+  "latina": "Juglans regia",
+  "origin_location": "Italy",
+  "delete_password": "bigNut"
+},
+{
+  "_id": {
+    "$oid": "65e312fc3acc64db24b2ec77"
+  },
+  "id": 4,
+  "name": "migdał",
+  "latina": "Prunus dulcis",
+  "origin_location": "Asia",
+  "delete_password": "yum"
+},
+{
+  "_id": {
+    "$oid": "65e312fc3acc64db24b2ec78"
+  },
+  "id": 5,
+  "name": "Orzeszki piniowe",
+  "latina": "Pinus pinea",
+  "origin_location": "Europa",
+  "delete_password": "nut"
+}]
