@@ -1,13 +1,18 @@
 const express = require("express") ;
+const mongoose = require("mongoose")
+
 const app = express() ;
-const nuts = require("./nuts/nuts") ;
+app.use(express.json()) ;
+
+const PORT = 8080
+
 const api = require("./api") ;
 
-app.use(express.json()) ;
 app.use("/api", api)
 
-app.get("/", (req,res)=>{
-    res.send("ok");
-})
+app.listen(PORT, ()=>console.log("Server is running on 8080, localhost:8080/"))
 
-app.listen(8080, ()=>console.log("Server is running on the port 8080")) ;
+process.on('SIGINT', ()=>{
+    console.log("zamykanie połączenia z mongo")
+    db.close(()=>process.exit)
+})
