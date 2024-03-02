@@ -57,7 +57,7 @@ router.get(`/${dataBase}/:id`, async (req,res)=>{
 router.post(`/${dataBase}`, async (req, res)=>{
     try{
         const newDocument = req.body
-        const result = new Ponczek(newDocument)
+        const result = new Model(newDocument)
         await result.save()
 
         return res.status(500).json({message:"Document added successfully"})
@@ -66,15 +66,32 @@ router.post(`/${dataBase}`, async (req, res)=>{
     }
 })
 
-router.delete(`/${dataBase}/:id/:password`, async (req,res)=>{
+router.delete(`/${dataBase}/:id/:password?`, async (req,res)=>{
     try{
-        const object = await Model.deleteOne({id: req.myId})
-        if(object.deletedCount === 0){
-            return res.status(404).json({message: "Doc not found"})
+        const object = await Model.findOne({id: req.myId})
+
+        if(req.params.password == undefined){
+            var password = ""
+        }
+        else{
+            var password = req.params.password
+        }
+
+        if(object.delete_password == password){
+
+            const objectToDelete = await Model.deleteOne({id: req.myId})
+
+            if(objectToDelete.deletedCount === 0){
+                return res.status(404).json({message: "Doc not found"})
+            }
+        }
+        else{
+            return res.status(400).json({message: "Not correct password"})
         }
 
         res.json({message: "deleted"})
-    }catch(err){
+    }
+    catch(err){
         errorHandler(res, err)
     }
 })
